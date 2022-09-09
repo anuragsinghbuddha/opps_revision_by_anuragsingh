@@ -1,0 +1,50 @@
+Access moifier are of 3 types:
+
+1 public access modifier
+class hero:
+    
+    def __init__(self,name,health,level,behaviour):
+        self.name=name 
+        self.health=health 
+        self.level=level
+        self.behaviour=behaviour
+        
+    def display_hero(self):
+        print("Name of hero is",self.name,"current health is",self.health," and current level is",self.level,end=" ")
+    
+if __name__ == '__main__':
+    h1=hero('anurag',95,5,"leadership")
+    h1.display_hero()
+    print("and behaviour is: ",h1.behaviour)
+
+2 protected access modifier
+
+class hero:
+    
+    _name=None
+    _health=None 
+    _level=None 
+    _behaviour=None
+    
+    def __init__(self,name,health,level,behaviour):
+        self._name=name 
+        self._health=health 
+        self._level=level
+        self._behaviour=behaviour
+        
+    def _display_hero(self):
+        print("Name of hero is",self._name,"current health is",self._health," and current level is",self._level,end=" ")
+        
+        
+class ggu(hero):
+    def __init__(self,name,health,level,behaviour):
+        hero.__init__(self,name,health,level,behaviour)
+    def display_details(self):
+        self._display_hero()
+        print("and behaviour is: ",hero.behaviour)
+    
+if __name__ == '__main__':
+    h1=ggu('anurag',95,5,"leadership")
+    print(h1.display_details())
+
+3 private access modifier
